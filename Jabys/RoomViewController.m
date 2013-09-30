@@ -69,6 +69,11 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self requestRooms];
+}
+
 // Makes the request for getting the room data. This fetches all rooms
 - (NSMutableArray *)getRoomData
 {
@@ -78,6 +83,7 @@
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSMutableArray *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
+    NSLog(@"%@", results);
     return results;
 }
 
@@ -120,6 +126,12 @@
             if ([segue.identifier isEqualToString:@"Game Segue"]) {
                 //[segue.destinationViewController performSelector:@selector(setImageUrl:) withObject:url];
                 [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+                
+                NSString *requestedRoomId = [self roomIdForRow:indexPath.row];
+                
+                NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                [defaults setObject:requestedRoomId forKey:@"requestedRoomId"];
+                [defaults synchronize];
             }
         }
     }
@@ -151,6 +163,16 @@
     return [self.rooms[row][@"created_at"] description];
 }
 
+- (NSString *)roomIdForRow:(NSUInteger)row
+{
+    return [self.rooms[row][@"id"] description];
+}
+
+- (BOOL)isInRoom:(NSUInteger)row
+{
+    return [[self.rooms[row][@"status"] description] isEqualToString:@"1"];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Game Room";
@@ -160,6 +182,11 @@
     
     cell.textLabel.text = [self titleForRow:indexPath.row];
     cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
+    
+    if ([self isInRoom:indexPath.row]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    
     return cell;
 }
 

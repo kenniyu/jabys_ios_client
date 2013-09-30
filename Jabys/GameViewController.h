@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface GameViewController : UIViewController
+#define PUSHER_KEY "cbaccb6b58b0ecf32b72"
 
+@property (nonatomic) int roomId;
 @end
