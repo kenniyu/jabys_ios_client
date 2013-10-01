@@ -92,6 +92,8 @@
 		C14FF3CC17F6752300E43D27 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14FF3CB17F6752300E43D27 /* WebViewController.m */; };
 		C14FF3CF17F6912400E43D27 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14FF3CE17F6912400E43D27 /* CreateAccountViewController.m */; };
 		C1899CC717F7702A00DB7B55 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1899CC617F7702A00DB7B55 /* RoomViewController.m */; };
+		C1B6820A17FABFA300BBB870 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B6820917FABFA300BBB870 /* list.png */; };
+		C1B6820D17FB5A7500BBB870 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B6820C17FB5A7500BBB870 /* Globals.m */; };
 		C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A617FA9755003A9556 /* PlayersViewController.m */; };
 		C1D035AA17FA98D0003A9556 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A917FA98D0003A9556 /* ScoreboardViewController.m */; };
 /* End PBXBuildFile section */
@@ -203,6 +205,9 @@
 		C14FF3CE17F6912400E43D27 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		C1899CC517F7702A00DB7B55 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		C1899CC617F7702A00DB7B55 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		C1B6820917FABFA300BBB870 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		C1B6820B17FB5A7500BBB870 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
+		C1B6820C17FB5A7500BBB870 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
 		C1D035A517FA9755003A9556 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
 		C1D035A617FA9755003A9556 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		C1D035A817FA98D0003A9556 /* ScoreboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardViewController.h; sourceTree = "<group>"; };
@@ -310,6 +315,8 @@
 				C11CF4D217F7EDA100CDDB8C /* JabysLogic.m */,
 				C1899CC517F7702A00DB7B55 /* RoomViewController.h */,
 				C1899CC617F7702A00DB7B55 /* RoomViewController.m */,
+				C1B6820B17FB5A7500BBB870 /* Globals.h */,
+				C1B6820C17FB5A7500BBB870 /* Globals.m */,
 				C11CF4CE17F7DDB800CDDB8C /* GameViewController.h */,
 				C11CF4CF17F7DDB800CDDB8C /* GameViewController.m */,
 				C14FF3CD17F6912400E43D27 /* CreateAccountViewController.h */,
@@ -362,6 +369,7 @@
 		C14FF37B17F5919200E43D27 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C1B6820917FABFA300BBB870 /* list.png */,
 				C11CF50517F7EE3000CDDB8C /* cardback.png */,
 				C14FF37C17F5919200E43D27 /* Button.png */,
 				C14FF37D17F5919200E43D27 /* Button@2x.png */,
@@ -505,6 +513,7 @@
 				C14FF3A517F5919200E43D27 /* ButtonPressed.png in Resources */,
 				C11CF4F417F7EE0F00CDDB8C /* J♦@2x.jpg in Resources */,
 				C14FF3AD17F5919200E43D27 /* ExitButton.png in Resources */,
+				C1B6820A17FABFA300BBB870 /* list.png in Resources */,
 				C14FF3B217F5919200E43D27 /* Felt@2x.png in Resources */,
 				C11CF4F917F7EE0F00CDDB8C /* K♥.jpg in Resources */,
 				C1314EBC17F564A0005FDC5C /* Images.xcassets in Resources */,
@@ -608,6 +617,7 @@
 				C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */,
 				C11CF4D317F7EDA100CDDB8C /* JabysLogic.m in Sources */,
 				C1899CC717F7702A00DB7B55 /* RoomViewController.m in Sources */,
+				C1B6820D17FB5A7500BBB870 /* Globals.m in Sources */,
 				C1314EB017F564A0005FDC5C /* main.m in Sources */,
 				C14FF3CF17F6912400E43D27 /* CreateAccountViewController.m in Sources */,
 				C11CF4D017F7DDB800CDDB8C /* GameViewController.m in Sources */,

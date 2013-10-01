@@ -11,12 +11,16 @@
 #import <libPusher/PTPusherChannel.h>
 #import <libPusher/PTPusherEvent.h>
 #import <libPusher/PTPusherAPI.h>
+#import "Globals.h"
+
 
 @interface RoomViewController ()
 @property (nonatomic, strong) id client; // of NSDictionary
 @property (weak, nonatomic) IBOutlet UITableView *roomList;
 @property (strong, nonatomic) NSString *authToken;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic, weak) NSString *baseUrl;
+
 @end
 
 @implementation RoomViewController
@@ -40,6 +44,8 @@
     [super viewDidLoad];
    	// Do any additional setup after loading the view.
     
+    self.baseUrl = [Globals baseUrl];
+
     // load the auth token
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.authToken = [defaults objectForKey:@"authToken"];
@@ -76,8 +82,8 @@
 // Makes the request for getting the room data. This fetches all rooms
 - (NSMutableArray *)getRoomData
 {
-    NSString *baseUrl = @"http://jabys.t.proxylocal.com/rooms.json";
-    NSString *url = [NSString stringWithFormat:@"%@?auth_token=%@", baseUrl, self.authToken];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"%@/rooms.json", self.baseUrl];
+    NSString *url = [NSString stringWithFormat:@"%@?auth_token=%@", urlString, self.authToken];
     url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;

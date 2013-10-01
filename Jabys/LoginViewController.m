@@ -8,12 +8,14 @@
 
 #import "LoginViewController.h"
 #import "RoomViewController.h"
+#import "Globals.h"
 
 @interface LoginViewController ()
 - (IBAction)loginBtn:(UIButton *)sender;
 @property (strong, nonatomic) NSDictionary *signInResponse;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UITableView *formTableView;
+@property (weak, nonatomic) NSString *baseUrl;
 
 @end
 
@@ -31,6 +33,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // set the base url
+    self.baseUrl = [Globals baseUrl];
+
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO];
     
@@ -66,7 +72,8 @@
     dispatch_queue_t loginQueue = dispatch_queue_create("Log In", NULL);
     dispatch_async(loginQueue, ^{
         NSString *bodyData = [NSString stringWithFormat:@"email=%@&password=%@", emailText, passwordText];
-        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://jabys.t.proxylocal.com/users/sign_in.json?"]];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/users/sign_in.json", self.baseUrl];
+        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [postRequest setHTTPMethod:@"POST"];
         [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];

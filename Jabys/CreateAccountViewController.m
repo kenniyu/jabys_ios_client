@@ -8,7 +8,7 @@
 
 #import "CreateAccountViewController.h"
 #import "RoomViewController.h"
-
+#import "Globals.h"
 
 @interface CreateAccountViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) NSString *baseUrl;
 
 @property (strong, nonatomic) NSDictionary *createAccountResponse;
 @property (strong, nonatomic) NSDictionary *signInResponse;
@@ -54,6 +55,8 @@
     self.scrollView.scrollEnabled = YES;
     CGSize scrollViewContentSize = CGSizeMake(320, 400);
     [self.scrollView setContentSize:scrollViewContentSize];
+    
+    self.baseUrl = [Globals baseUrl];
 }
 
 - (void)showDoneButton
@@ -73,7 +76,8 @@
     dispatch_queue_t createAccountQueue = dispatch_queue_create("createAccount", NULL);
     dispatch_async(createAccountQueue, ^{
         NSString *bodyData = [NSString stringWithFormat:@"user[email]=%@&user[password]=%@&user[password_confirmation]=%@", emailText, passwordText, confirmPasswordText];
-        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://jabys.t.proxylocal.com/users.json"]];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/users.json", self.baseUrl];
+        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [postRequest setHTTPMethod:@"POST"];
         [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
@@ -112,7 +116,8 @@
     dispatch_queue_t createAccountQueue = dispatch_queue_create("createAccount", NULL);
     dispatch_async(createAccountQueue, ^{
         NSString *bodyData = [NSString stringWithFormat:@"email=%@&password=%@", emailText, passwordText];
-        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://jabys.t.proxylocal.com/users/sign_in.json?"]];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/users/sign_in.json", self.baseUrl];
+        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
         [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [postRequest setHTTPMethod:@"POST"];
         [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];

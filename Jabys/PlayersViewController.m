@@ -11,6 +11,8 @@
 #import <libPusher/PTPusherChannel.h>
 #import <libPusher/PTPusherEvent.h>
 #import <libPusher/PTPusherAPI.h>
+#import "Globals.h"
+
 
 @interface PlayersViewController ()
 /* Pusher shit */
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) NSString *requestedRoomId;
 @property (strong, nonatomic) NSString *authToken;
 @property (strong, nonatomic) NSString *userId;
+@property (weak, nonatomic) NSString *baseUrl;
 
 @end
 
@@ -41,6 +44,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.baseUrl = [Globals baseUrl];
     
     // get the room that we requested for
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -78,8 +83,8 @@
     dispatch_async(requestGetAllPlayers, ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         
-        NSString *baseUrl = @"http://jabys.t.proxylocal.com/api/rooms/all_players.json";
-        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", baseUrl, self.requestedRoomId, self.authToken];
+        NSString *urlString = [[NSString alloc] initWithFormat: @"%@/api/rooms/all_players.json", self.baseUrl];
+        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", urlString, self.requestedRoomId, self.authToken];
         url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;

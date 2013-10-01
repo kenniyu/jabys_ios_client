@@ -11,8 +11,11 @@
 #import <libPusher/PTPusherChannel.h>
 #import <libPusher/PTPusherEvent.h>
 #import <libPusher/PTPusherAPI.h>
+#import "Globals.h"
 
 @interface GameViewController ()
+/* Base url */
+@property (nonatomic, weak) NSString *baseUrl;
 /* Pusher shit */
 @property (nonatomic, strong) id client; // of NSDictionary
 
@@ -53,14 +56,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.baseUrl = [Globals baseUrl];
     
     // get the room that we requested for
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.requestedRoomId = [defaults objectForKey:@"requestedRoomId"];
     self.authToken = [defaults objectForKey:@"authToken"];
     self.userId = [defaults objectForKey:@"userId"];
-
-    
 
     // pusher shit
     _client = [PTPusher pusherWithKey:@PUSHER_KEY delegate:self encrypted:YES];
@@ -98,8 +100,8 @@
     dispatch_async(refreshHostStatus, ^{
         [NSThread sleepForTimeInterval:1];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        NSString *baseUrl = @"http://jabys.t.proxylocal.com/api/rooms/refresh_host.json";
-        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", baseUrl, self.requestedRoomId, self.authToken];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/api/rooms/refresh_host.json", self.baseUrl];
+        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", urlString, self.requestedRoomId, self.authToken];
         url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -117,9 +119,8 @@
     dispatch_queue_t requestJoinRoomQueue = dispatch_queue_create("Request Join Room", NULL);
     dispatch_async(requestJoinRoomQueue, ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
-        NSString *baseUrl = @"http://jabys.t.proxylocal.com/api/rooms/join.json";
-        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", baseUrl, self.requestedRoomId, self.authToken];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/api/rooms/join.json", self.baseUrl];
+        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", urlString, self.requestedRoomId, self.authToken];
         url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;
@@ -166,9 +167,8 @@
     dispatch_queue_t requestLeaveGame = dispatch_queue_create("Request Leave Game", NULL);
     dispatch_async(requestLeaveGame, ^{
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        
-        NSString *baseUrl = @"http://jabys.t.proxylocal.com/api/rooms/leave.json";
-        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", baseUrl, self.requestedRoomId, self.authToken];
+        NSString *urlString = [[NSString alloc] initWithFormat:@"%@/api/rooms/leave.json", self.baseUrl];
+        NSString *url = [NSString stringWithFormat:@"%@?room_id=%@&auth_token=%@", urlString, self.requestedRoomId, self.authToken];
         url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;
@@ -228,8 +228,12 @@
     // make a request to start the game
     dispatch_queue_t requestStartGame = dispatch_queue_create("Request Start Game", NULL);
     dispatch_async(requestStartGame, ^{
+        
+        NSString *urlString = [[NSString alloc] initWithFormat:
+                               @"%@/api/rooms/start_game.json?", self.baseUrl];
+        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+        
         NSString *bodyData = [NSString stringWithFormat:@"auth_token=%@&room_id=%@", self.authToken, self.requestedRoomId];
-        NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://jabys.t.proxylocal.com/api/rooms/start_game.json?"]];
         [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         [postRequest setHTTPMethod:@"POST"];
         [postRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:[bodyData length]]];
