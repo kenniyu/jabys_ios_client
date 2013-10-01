@@ -103,8 +103,10 @@
     NSLog(@"%@", self.signInResponse);
     // store the auth token
     NSString *authToken = self.signInResponse[@"auth_token"];
+    NSString *userId = self.signInResponse[@"id"];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:authToken forKey:@"authToken"];
+    [defaults setObject:userId forKey:@"userId"];
     [defaults synchronize];
     NSLog(@"Auth token saved");
     

@@ -54,7 +54,6 @@
     PTPusherChannel *channel = [_client subscribeToChannelNamed:@"rooms_channel"];
     [channel bindToEventNamed:@"room_created" handleWithBlock:^(PTPusherEvent *channelEvent) {
         // channelEvent.data is a NSDictianary of the JSON object received
-        NSLog(@"Message received: %@", [channelEvent.data description]);
         [self.rooms addObject:@{@"name": channelEvent.data[@"name"]}];
         [self.roomList reloadData];
     }];
@@ -83,7 +82,6 @@
     NSData *jsonData = [[NSString stringWithContentsOfURL:[NSURL URLWithString:url] encoding:NSUTF8StringEncoding error:nil] dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error = nil;
     NSMutableArray *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
-    NSLog(@"%@", results);
     return results;
 }
 
@@ -170,7 +168,9 @@
 
 - (BOOL)isInRoom:(NSUInteger)row
 {
-    return [[self.rooms[row][@"status"] description] isEqualToString:@"1"];
+    NSString *status = [self.rooms[row][@"status"] description];
+    BOOL isInRoom = [status isEqualToString:@"1"];
+    return isInRoom;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -185,6 +185,8 @@
     
     if ([self isInRoom:indexPath.row]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return cell;

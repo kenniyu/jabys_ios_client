@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1F3A8858-948B-450A-8EF3-83E6552B040F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Jabys</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5BB4BFF3-0FEC-4E13-9047-A7F0003CC497</key>
+		<string>ssh://github.com/kenniyu/jabys_ios_client.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Jabys/Jabys.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5BB4BFF3-0FEC-4E13-9047-A7F0003CC497</key>
+		<string>..</string>
+		<key>BBBC70AE-1DDD-4FB4-B8AA-A06AF35C4A1F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/kenniyu/jabys_ios_client.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BBBC70AE-1DDD-4FB4-B8AA-A06AF35C4A1F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BBBC70AE-1DDD-4FB4-B8AA-A06AF35C4A1F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios apps</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5BB4BFF3-0FEC-4E13-9047-A7F0003CC497</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Jabys</string>
+		</dict>
+	</array>
+</dict>
+</plist>
