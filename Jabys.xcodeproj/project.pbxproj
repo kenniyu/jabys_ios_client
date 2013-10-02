@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38592F33024A4D49B72A496E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDF8AEFB388407EAA69B3EA /* libPods.a */; };
+		C10A017D17FBA40C00431F0D /* ChatMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C10A017C17FBA40C00431F0D /* ChatMessagesViewController.m */; };
 		C11CF4C517F7AE8D00CDDB8C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CF4C417F7AE8D00CDDB8C /* LoginViewController.m */; };
 		C11CF4CA17F7B77700CDDB8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C11CF4C917F7B77700CDDB8C /* Main.storyboard */; };
 		C11CF4D017F7DDB800CDDB8C /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C11CF4CF17F7DDB800CDDB8C /* GameViewController.m */; };
@@ -94,6 +95,7 @@
 		C1899CC717F7702A00DB7B55 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1899CC617F7702A00DB7B55 /* RoomViewController.m */; };
 		C1B6820A17FABFA300BBB870 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B6820917FABFA300BBB870 /* list.png */; };
 		C1B6820D17FB5A7500BBB870 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B6820C17FB5A7500BBB870 /* Globals.m */; };
+		C1B6821317FB94B300BBB870 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */; };
 		C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A617FA9755003A9556 /* PlayersViewController.m */; };
 		C1D035AA17FA98D0003A9556 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A917FA98D0003A9556 /* ScoreboardViewController.m */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,8 @@
 
 /* Begin PBXFileReference section */
 		2E5179D4CCF84E58BEDD7FFE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C10A017B17FBA40C00431F0D /* ChatMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessagesViewController.h; sourceTree = "<group>"; };
+		C10A017C17FBA40C00431F0D /* ChatMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessagesViewController.m; sourceTree = "<group>"; };
 		C11CF4C317F7AE8D00CDDB8C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		C11CF4C417F7AE8D00CDDB8C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C11CF4C917F7B77700CDDB8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 		C1B6820917FABFA300BBB870 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		C1B6820B17FB5A7500BBB870 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		C1B6820C17FB5A7500BBB870 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
+		C1B6821117FB94B300BBB870 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
+		C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
 		C1D035A517FA9755003A9556 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
 		C1D035A617FA9755003A9556 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		C1D035A817FA98D0003A9556 /* ScoreboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardViewController.h; sourceTree = "<group>"; };
@@ -307,6 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				C11CF4C917F7B77700CDDB8C /* Main.storyboard */,
+				C1B6821117FB94B300BBB870 /* ChatMessageTableViewCell.h */,
+				C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */,
 				C1D035A817FA98D0003A9556 /* ScoreboardViewController.h */,
 				C1D035A917FA98D0003A9556 /* ScoreboardViewController.m */,
 				C1D035A517FA9755003A9556 /* PlayersViewController.h */,
@@ -329,6 +337,8 @@
 				C1314EB917F564A0005FDC5C /* JabysViewController.m */,
 				C1314EBB17F564A0005FDC5C /* Images.xcassets */,
 				C1314EAA17F564A0005FDC5C /* Supporting Files */,
+				C10A017B17FBA40C00431F0D /* ChatMessagesViewController.h */,
+				C10A017C17FBA40C00431F0D /* ChatMessagesViewController.m */,
 			);
 			path = Jabys;
 			sourceTree = "<group>";
@@ -613,6 +623,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10A017D17FBA40C00431F0D /* ChatMessagesViewController.m in Sources */,
 				C1314EB417F564A0005FDC5C /* JabysAppDelegate.m in Sources */,
 				C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */,
 				C11CF4D317F7EDA100CDDB8C /* JabysLogic.m in Sources */,
@@ -623,6 +634,7 @@
 				C11CF4D017F7DDB800CDDB8C /* GameViewController.m in Sources */,
 				C11CF4C517F7AE8D00CDDB8C /* LoginViewController.m in Sources */,
 				C1314EBA17F564A0005FDC5C /* JabysViewController.m in Sources */,
+				C1B6821317FB94B300BBB870 /* ChatMessageTableViewCell.m in Sources */,
 				C1D035AA17FA98D0003A9556 /* ScoreboardViewController.m in Sources */,
 				C14FF3CC17F6752300E43D27 /* WebViewController.m in Sources */,
 			);
