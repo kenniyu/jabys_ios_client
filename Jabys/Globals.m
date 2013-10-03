@@ -12,7 +12,8 @@
 static NSString* baseUrl = nil;
 
 + (void)load {
-    baseUrl = @"http://localhost:3000";
+    baseUrl = @"http://jabys.t.proxylocal.com";
+    //baseUrl = @"http://localhost:3000";
 }
 
 + (NSString *)baseUrl

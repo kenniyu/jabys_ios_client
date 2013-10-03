@@ -93,9 +93,9 @@
 		C14FF3CC17F6752300E43D27 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14FF3CB17F6752300E43D27 /* WebViewController.m */; };
 		C14FF3CF17F6912400E43D27 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C14FF3CE17F6912400E43D27 /* CreateAccountViewController.m */; };
 		C1899CC717F7702A00DB7B55 /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1899CC617F7702A00DB7B55 /* RoomViewController.m */; };
+		C19E9D1417FD03E6000EFD4F /* GameOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C19E9D1317FD03E6000EFD4F /* GameOptionsViewController.m */; };
 		C1B6820A17FABFA300BBB870 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = C1B6820917FABFA300BBB870 /* list.png */; };
 		C1B6820D17FB5A7500BBB870 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B6820C17FB5A7500BBB870 /* Globals.m */; };
-		C1B6821317FB94B300BBB870 /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */; };
 		C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A617FA9755003A9556 /* PlayersViewController.m */; };
 		C1D035AA17FA98D0003A9556 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D035A917FA98D0003A9556 /* ScoreboardViewController.m */; };
 /* End PBXBuildFile section */
@@ -209,11 +209,11 @@
 		C14FF3CE17F6912400E43D27 /* CreateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAccountViewController.m; sourceTree = "<group>"; };
 		C1899CC517F7702A00DB7B55 /* RoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		C1899CC617F7702A00DB7B55 /* RoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		C19E9D1217FD03E6000EFD4F /* GameOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOptionsViewController.h; sourceTree = "<group>"; };
+		C19E9D1317FD03E6000EFD4F /* GameOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOptionsViewController.m; sourceTree = "<group>"; };
 		C1B6820917FABFA300BBB870 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		C1B6820B17FB5A7500BBB870 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Globals.h; sourceTree = "<group>"; };
 		C1B6820C17FB5A7500BBB870 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Globals.m; sourceTree = "<group>"; };
-		C1B6821117FB94B300BBB870 /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
-		C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
 		C1D035A517FA9755003A9556 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
 		C1D035A617FA9755003A9556 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
 		C1D035A817FA98D0003A9556 /* ScoreboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreboardViewController.h; sourceTree = "<group>"; };
@@ -313,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				C11CF4C917F7B77700CDDB8C /* Main.storyboard */,
-				C1B6821117FB94B300BBB870 /* ChatMessageTableViewCell.h */,
-				C1B6821217FB94B300BBB870 /* ChatMessageTableViewCell.m */,
+				C19E9D1217FD03E6000EFD4F /* GameOptionsViewController.h */,
+				C19E9D1317FD03E6000EFD4F /* GameOptionsViewController.m */,
 				C1D035A817FA98D0003A9556 /* ScoreboardViewController.h */,
 				C1D035A917FA98D0003A9556 /* ScoreboardViewController.m */,
 				C1D035A517FA9755003A9556 /* PlayersViewController.h */,
@@ -625,6 +625,7 @@
 			files = (
 				C10A017D17FBA40C00431F0D /* ChatMessagesViewController.m in Sources */,
 				C1314EB417F564A0005FDC5C /* JabysAppDelegate.m in Sources */,
+				C19E9D1417FD03E6000EFD4F /* GameOptionsViewController.m in Sources */,
 				C1D035A717FA9755003A9556 /* PlayersViewController.m in Sources */,
 				C11CF4D317F7EDA100CDDB8C /* JabysLogic.m in Sources */,
 				C1899CC717F7702A00DB7B55 /* RoomViewController.m in Sources */,
@@ -634,7 +635,6 @@
 				C11CF4D017F7DDB800CDDB8C /* GameViewController.m in Sources */,
 				C11CF4C517F7AE8D00CDDB8C /* LoginViewController.m in Sources */,
 				C1314EBA17F564A0005FDC5C /* JabysViewController.m in Sources */,
-				C1B6821317FB94B300BBB870 /* ChatMessageTableViewCell.m in Sources */,
 				C1D035AA17FA98D0003A9556 /* ScoreboardViewController.m in Sources */,
 				C14FF3CC17F6752300E43D27 /* WebViewController.m in Sources */,
 			);

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatMessagesViewController : UIViewController
+#define PUSHER_KEY "cbaccb6b58b0ecf32b72"
 
 @end
